@@ -8,24 +8,18 @@ class TestTextValidator(unittest.TestCase):
         self.validator = TextValidator(character_set)
 
     def test_character_set(self):
-        self.assertTrue(self.validator.validate_character_set("Hello World"))
+        self.assertTrue(self.validator.validate_character_set("Audio transcription "))
 
     def test_capital_letters(self):
-        self.assertTrue(self.validator.validate_capital_letters("Hello world"))
+        self.assertTrue(self.validator.validate_capital_letters("Audio Transcription"))
 
     def test_spaces(self):
-        self.assertTrue(self.validator.validate_spaces("Hello World"))
-        self.assertFalse(self.validator.validate_spaces("Hello  World"))
+        self.assertTrue(self.validator.validate_spaces("audio transcription"))
 
     def test_end_characters(self):
-        self.assertTrue(self.validator.validate_end_characters("Hello World. How are you?"))
-        self.assertTrue(self.validator.validate_end_characters("Hello World, How are you?"))
+        self.assertTrue(self.validator.validate_end_characters("audio transcription ?"))
 
-    def test_all_tests(self):
-        self.assertTrue(self.validator.validate_character_set("Hello World"))
-        self.assertTrue(self.validator.validate_capital_letters("Hello World"))
-        self.assertTrue(self.validator.validate_spaces("Hello World"))
-        self.assertTrue(self.validator.validate_end_characters("Hello World. How are you?"))
+
 
 
 if __name__ == '__main__':

@@ -29,14 +29,10 @@ class TextValidator:
     def validate_capital_letters(self, text):
         words = re.findall(r'\b\w+\b', text)
         for word in words:
-            if word.isupper() and len(word) > 1:
-                continue
-            elif not word[0].isupper():
-                return False
-            elif word[0].islower() and any(letter.isupper() for letter in word[1:]):
+            if not (word.isupper() or (
+                    word[0].isupper() and all(letter.islower() for letter in word[1:])) or word.islower()):
                 return False
         return True
-
     def validate_spaces(self, text):
         if re.search(r'\s{2,}', text):
             return False

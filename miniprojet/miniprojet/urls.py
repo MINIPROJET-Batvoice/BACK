@@ -26,9 +26,8 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
    path('untranscribed_audios/', views.untranscribed_audios, name='untranscribed_audios'),
-                  path('list-audios/', views.list_audios, name='list-audios'),
+       path('list-audios/', views.list_audios, name='list-audios'),
     path('audio/<int:audio_id>/', views.get_audio, name='get-audio'),
-   path('populate-audio-data/', views.populate_audio_data, name='populate-audio-data'),
      path('sign_up/', views.sign_up, name='sign-up'),
      path('login/', views.login_view, name='login'),
      path('add_transcription/<int:user_id>/<int:audio_id>/', views.add_transcription,   name='add_transcription'),
